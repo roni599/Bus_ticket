@@ -1,0 +1,327 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.app_header {
+    text-align: center;
+    background-color: #1F2C46;
+    color: #41B883;
+    padding: 20px;
+}
+
+.app_title {
+    text-align: center;
+    padding: 7px;
+    margin-top: 10px;
+}
+
+.card {
+    width: 650px;
+    /* height: 450px; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 0 auto;
+}
+.card2 {
+    width: 650px;
+    /* height: 450px; */
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+    margin: 0 auto;
+    padding: 35px 0px;
+}
+
+.app_top {
+    display: flex;
+}
+
+.seat_status {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 6px;
+}
+
+.seat_status_body {
+    width: 30px;
+    height: 20px;
+    background-color: red;
+    border: 1px solid black;
+}
+
+.seat_text {
+    align-items: center;
+    margin-left: 10px;
+}
+
+.app_bottom {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 27px;
+}
+
+.app_right {
+    width: 30%;
+    height: 360px;
+    border: 1px solid black;
+}
+
+.ticket-app__instruction {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 60%;
+}
+
+.app_left {
+    width: 60%;
+    height: 360px;
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; */
+}
+
+.app_door_driver {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.door {
+    width: 40%;
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+.driver {
+    width: 40%;
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+.seats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 11px;
+}
+
+.seat {
+    border: 1px solid black;
+    padding: 3px;
+    margin: 3px;
+    width: 28px;
+    text-align: center;
+    font-size: 15px;
+    min-height: 11px;
+    cursor: pointer;
+}
+
+.seat:nth-child(4n-2) {
+    margin-right: 10px;
+}
+
+.seat:nth-child(4n-1) {
+    margin-left: 10px;
+}
+
+.sold {
+    background-color: red;
+}
+
+.available {
+    background-color: white;
+}
+
+.selected {
+    background-color: green;
+}
+
+.booked {
+    background-color: gray;
+}
+
+.seat:hover {
+    font-weight: bold;
+}
+
+.cart {
+    width: 90%;
+    margin: 0 auto;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.coupon {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.coupon input {
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.input_group {
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.input_group input {
+    width: 130px;
+    margin-right: 10px;
+    padding: 7px;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.c_button {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.confirmed {
+    margin: auto;
+    width: 79%;
+    background-color: green;
+    padding: 8px 7px;
+    border: none;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.confirm_dialog {
+    position: relative;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 20px auto;
+}
+
+.confirmed_box {
+    position: absolute;
+    width: 100%;
+    margin-top: 20px;
+    z-index: 999;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 40px;
+}
+
+.confirmed_title {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    color: green;
+    font-size: 22px;
+}
+
+.details {
+    width: 70%;
+    margin: 30px auto;
+    margin-bottom: 0px;
+}
+
+.confirmed_hr {
+    width: 70%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 5px auto;
+    height: 2px;
+    background-color: grey;
+}
+
+.clear_btn {
+    text-align: center;
+    width: 100%;
+}
+
+.clear_btn .clear {
+    width: 70%;
+    padding: 7px 5px;
+    margin-top: 30px;
+    font-weight: bold;
+    background-color: green;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* <div class="card" >
+            <div class="confirm_dialog" v-if="confirmed===true">
+                <div class="confirmed_box">
+                    <p class="confirmed_title">Ticket Confirmed!</p>
+                    <hr class="confirmed_hr">
+                    <div class="details">
+                        <table>
+                            <tr>
+                                <th>Passenger Name</th>
+                                <th>{{name}}</th>
+                            </tr>
+                            <tr>
+                                <th>Passenger Contact</th>
+                                <th>{{mobile}}</th>
+                            </tr>
+                            <tr>
+                                <th>Seat</th>
+                                <th>
+                                    <span v-for="(value,index) in select_seats" :key="value.name">
+                                        {{value.name}}
+                                    </span>
+                                    <!-- <span v-for="(value, index) in select_seats" :key="value.name">
+                                        {{ value.name }}
+                                        <span v-if="index !== select_seats.length - 1">,</span>
+                                    </span> -->
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>Cost</th>
+                                <th>Tk.{{totalCost}} </th>
+                            </tr>
+
+                            <!-- <tr v-for="(value,index) in select_seats" :key="value.name">
+                                <td>{{value.name}}</td>
+                                <td>{{value.price}}</td>
+                            </tr>
+                            <tr v-if="applicableCoupon!==null">
+                                <th>Discount</th>
+                                <th>Tk. -{{applicableCoupon.discount}}</th>
+                            </tr>
+                            <tr>
+                                <th>Cost</th>
+                                <th>Tk.{{totalCost}} </th>
+                            </tr> -->
+                        </table>
+                    </div>
+                    <div class="clear_btn">
+                        <button class="clear" @click="bookAgain">Book Again</button>
+                    </div>
+                </div>
+            </div>
+        </div> */

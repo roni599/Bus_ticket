@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+    <header>
+        <h2 class="app_header">Vue JS 3 Bangla Tutorial</h2>
+    </header>
+    <div id="app">
+        <h1 class="app_title">Ticket Booking App</h1>
+        <div class="card">
+            <div class="confirm_dialog" v-if="confirmed">
+                <div class="confirmed_box">
+                    <h4 class="confirmed_title">Ticket Confirmed!</h4>
+                    <hr class="confirmed_hr">
+                    <div class="details">
+                        <table>
+                            <tr>
+                                <th>Passenger Name</th>
+                                <th>{{name}}</th>
+                            </tr>
+                            <tr>
+                                <th>Passenger Contact</th>
+                                <th>{{mobile}}</th>
+                            </tr>
+                            <tr>
+                                <th>Seat</th>
+                                <th>
+                                    <span v-for="(value, index) in select_seats" :key="value.name">
+                                        {{ value.name }}
+                                        <span v-if="index !== select_seats.length - 1">,</span>
+                                    </span>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>Cost</th>
+                                <th>Tk.{{totalCost}} </th>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="clear_btn">
+                        <button class="clear" @click="bookAgain">Book Again</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card2" v-else>
+                <div class="app_top">
+                    <div class="seat_status" v-for="(value,key,index) in seat_status">
+                        <div class="seat_status_body" :style="{backgroundColor:value.color}"></div>
+                        <div class="seat_text">
+                            {{value.text}}
+                        </div>
+                    </div>
+                </div>
+                <div class="app_bottom">
+                    <div class="app_right">
+                        <div class="app_door_driver">
+                            <div class="door">Door</div>
+                            <div class="driver"> Driver</div>
+                        </div>
+                        <div class="seats">
+                            <div class="seat" :class="{
+                                'sold':seat.type==='sold',
+                                'available':seat.type==='available',
+                                'booked':seat.type==='booked',
+                                'selected':seat.type==='selected'
+                            }" v-for="(seat,index) in seats" :key="seat.name" @click="handleClick(index)">
+                                {{seat.name}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ticket-app__instruction" v-if="select_seats.length===0">
+                        No seats selected <br />
+                        Select some seats first
+                    </div>
+                    <div class="app_left" v-else>
+                        <div class="cart">
+                            <strong>Selected Seats</strong>
+                            <table>
+                                <tr>
+                                    <th>Seat</th>
+                                    <th>Price</th>
+                                </tr>
+                                <tr v-for="(value,index) in select_seats" :key="value.name">
+                                    <td>{{value.name}}</td>
+                                    <td>{{value.price}}</td>
+                                </tr>
+                                <tr v-if="applicableCoupon!==null">
+                                    <th>Discount</th>
+                                    <th>Tk. -{{applicableCoupon.discount}}</th>
+                                </tr>
+                                <tr>
+                                    <th>Cost</th>
+                                    <th>Tk.{{totalCost}} </th>
+                                </tr>
+                            </table>
+
+                            <p class="coupon" v-if="applicableCoupon==null">Have Coupon : <input type="text" name=""
+                                    v-model="coupon" id="7 digit coupon"></p>
+                            <p class="coupon" v-else>Applied coupon : {{applicableCoupon.code}}</p>
+                        </div>
+                        <div class="input_group">
+                            <input type="text" name="" v-model="name" id="" placeholder="Name">
+                            <input type="text" name="" v-model="mobile" id="" placeholder="Mobile">
+                        </div>
+                        <div class="c_button">
+                            <button class="confirmed" type="submit" @click="handleConfirm">Confirmed</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<script src="./app.js"></script>
+</body>
+
+</html>
